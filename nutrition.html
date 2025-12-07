@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Питание</title>
+<style>
+/* ---------- ОСНОВА ---------- */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0d1117, #111827);
+    color: #f0f0f0;
+}
+
+/* ---------- МЕНЮ ---------- */
+.burger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 35px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 999;
+}
+.burger span {
+    display: block;
+    height: 4px;
+    margin-bottom: 6px;
+    background: #34d399;
+    border-radius: 4px;
+    transition: 0.35s;
+}
+.burger.active span:nth-child(1){ transform: translateY(10px) rotate(45deg);}
+.burger.active span:nth-child(2){ opacity: 0;}
+.burger.active span:nth-child(3){ transform: translateY(-10px) rotate(-45deg);}
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100%;
+    background: #111827;
+    padding-top: 80px;
+    box-shadow: 3px 0 15px rgba(0,0,0,0.5);
+    transition: 0.45s ease;
+    z-index: 998;
+}
+.side-menu.open { left: 0; }
+.side-menu a {
+    display: block;
+    padding: 18px 30px;
+    font-size: 1.2em;
+    color: #34d399;
+    text-decoration: none;
+    border-bottom: 1px solid #1f2937;
+    transition: 0.35s;
+}
+.side-menu a:hover { background: #0f172a; padding-left: 45px;}
+
+/* ---------- ЗАГОЛОВОК ---------- */
+.header {
+    text-align: center;
+    padding: 60px 20px 20px;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #34d399;
+    text-shadow: 0 0 10px #00ffd0;
+}
+
+/* ---------- КАРТОЧКИ ---------- */
+.card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 25px auto;
+    box-shadow: 0 0 20px rgba(0,255,208,0.2);
+    animation: fadeUp 0.6s ease;
+}
+@keyframes fadeUp {
+    from {opacity:0; transform:translateY(30px);}
+    to {opacity:1; transform:translateY(0);}
+}
+.card-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #00ffd0;
+    margin-bottom: 15px;
+}
+.time-label {
+    background: #00ffd0;
+    color: #0f0f0f;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+.text { font-size: 1.05em; margin-bottom: 10px; }
+.table { width: 100%; margin-top: 15px; border-collapse: collapse; }
+.table th, .table td { padding: 12px; border-bottom: 1px solid #1f2937; }
+.table th { color: #34d399; text-align: left; }
+.bullet { color: #34d399; font-weight: bold; }
+
+/* ---------- КАЛЬКУЛЯТОР ---------- */
+.calc-card {
+    background: #0f172a;
+    border: 1px solid #1f2937;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 25px auto;
+    box-shadow: 0 0 20px rgba(0,255,208,0.2);
+    animation: fadeUp 0.6s ease;
+}
+.calc-card input, .calc-card select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px 0;
+    border-radius: 6px;
+    border: 1px solid #1f2937;
+    background: #1f2937;
+    color: #f0f0f0;
+    font-size: 1em;
+}
+.calc-card button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    background: #34d399;
+    color: #0f0f0f;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.calc-card button:hover { background: #00ffd0; }
+.calc-result {
+    margin-top: 20px;
+    font-size: 1.1em;
+    background: #111827;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Бургер -->
+<div class="burger" id="burger">
+    <span></span><span></span><span></span>
+</div>
+
+<!-- Меню -->
+<nav id="sideMenu" class="side-menu">
+    <a href="index.html">🏋️ Тренировки</a>
+    <a href="nutrition2.html">🥗 Питание 2.0</a>
+    <a href="#">📈 Прогресс</a>
+    <a href="#">📞 Контакты</a>
+</nav>
+
+<h1 class="header">🥗 Питание для набора массы</h1>
+
+<!-- КАЛЬКУЛЯТОР -->
+<div class="calc-card">
+    <div class="card-title">⚡ Мини-Калькулятор КБЖУ</div>
+    <input type="number" id="weight" placeholder="Вес (кг)" />
+    <input type="number" id="height" placeholder="Рост (см)" />
+    <input type="number" id="age" placeholder="Возраст (лет)" />
+    <select id="activity">
+        <option value="1.2">Малоактивный</option>
+        <option value="1.375">Легкая активность</option>
+        <option value="1.55" selected>Средняя активность</option>
+        <option value="1.725">Высокая активность</option>
+        <option value="1.9">Очень высокая активность</option>
+    </select>
+    <button onclick="calculateBJU()">Рассчитать КБЖУ</button>
+    <div id="result" class="calc-result"></div>
+</div>
+
+<!-- Пример карточек питания -->
+<div class="card">
+    <div class="card-title">🍌 Перекус №1 <span class="time-label">12:30</span></div>
+    <p class="text"><span class="bullet">•</span> Орехи (микс) — 40–50 г</p>
+    <p class="text"><span class="bullet">•</span> Банан — 120–140 г</p>
+    <p class="text"><span class="bullet">•</span> Йогурт питьевой — 200–300 мл</p>
+    <p class="text"><b>Калорийность: ~600–750 ккал</b></p>
+</div>
+
+<div class="card">
+    <div class="card-title">🥯 Перекус №2 <span class="time-label">15:00</span></div>
+    <p class="text"><span class="bullet">•</span> Овсяное печенье — 60–80 г</p>
+    <p class="text"><span class="bullet">•</span> Орехи — 30 г</p>
+    <p class="text"><span class="bullet">•</span> Сырок / батончик — 40–50 г</p>
+    <p class="text"><span class="bullet">•</span> Фрукты — 1 шт</p>
+    <p class="text"><b>~650–750 ккал</b></p>
+</div>
+
+<div class="card">
+    <div class="card-title">🍛 Обед <span class="time-label">17:30</span></div>
+    <p class="text"><span class="bullet">•</span> Макароны / рис / гречка — 200–250 г готовых</p>
+    <p class="text"><span class="bullet">•</span> Курица / фарш / яйца — 150–250 г</p>
+    <p class="text"><span class="bullet">•</span> Овощи — 100 г</p>
+    <p class="text"><b>~800–1000 ккал</b></p>
+</div>
+
+<div class="card">
+    <div class="card-title">🍲 Ужин <span class="time-label">22:30</span></div>
+    <p class="text"><span class="bullet">•</span> Макароны — 150 г готовых</p>
+    <p class="text"><span class="bullet">•</span> Фарш / курица — 150–200 г</p>
+    <p class="text"><span class="bullet">•</span> Овощи — 100 г</p>
+    <p class="text"><b>~700–850 ккал</b></p>
+</div>
+
+<div class="card">
+    <div class="card-title">🥛 Ночной прием <span class="time-label">00:30</span></div>
+    <p class="text"><span class="bullet">•</span> Творог — 200–250 г</p>
+    <p class="text"><span class="bullet">•</span> Молоко — 200–300 мл</p>
+    <p class="text"><span class="bullet">•</span> Овсянка — 50–60 г</p>
+    <p class="text"><b>~500–650 ккал</b></p>
+</div>
+
+<script>
+const burger = document.getElementById("burger");
+const sideMenu = document.getElementById("sideMenu");
+burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+    sideMenu.classList.toggle("open");
+});
+
+/* ---------- Калькулятор КБЖУ ---------- */
+function calculateBJU() {
+    const weight = parseFloat(document.getElementById("weight").value);
+    const height = parseFloat(document.getElementById("height").value);
+    const age = parseFloat(document.getElementById("age").value);
+    const activity = parseFloat(document.getElementById("activity").value);
+    if(!weight || !height || !age) {
+        document.getElementById("result").innerHTML = "Введите все данные!";
+        return;
+    }
+    // BMR по формуле Миффлина-Сан Жеора
+    const bmr = 10*weight + 6.25*height - 5*age + 5;
+    const calories = Math.round(bmr*activity);
+    const protein = Math.round(weight*2); // 2 г белка на кг
+    const fat = Math.round(weight*1); // 1 г жиров на кг
+    const carbs = Math.round((calories - (protein*4 + fat*9))/4);
+    document.getElementById("result").innerHTML = `
+        Калории: <b>${calories} ккал</b><br>
+        Белки: <b>${protein} г</b><br>
+        Жиры: <b>${fat} г</b><br>
+        Углеводы: <b>${carbs} г</b>
+    `;
+}
+</script>
+
+</body>
+</html>
