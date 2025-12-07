@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Питание</title>
 <style>
-/* ---------- ОСНОВА ---------- */
+    
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -13,7 +13,6 @@ body {
     color: #f0f0f0;
 }
 
-/* ---------- МЕНЮ ---------- */
 .burger {
     position: fixed;
     top: 20px;
@@ -58,7 +57,7 @@ body {
 }
 .side-menu a:hover { background: #0f172a; padding-left: 45px;}
 
-/* ---------- ЗАГОЛОВОК ---------- */
+
 .header {
     text-align: center;
     padding: 60px 20px 20px;
@@ -68,7 +67,6 @@ body {
     text-shadow: 0 0 10px #00ffd0;
 }
 
-/* ---------- КАРТОЧКИ ---------- */
 .card {
     background: #111827;
     border: 1px solid #1f2937;
@@ -103,7 +101,6 @@ body {
 .table th { color: #34d399; text-align: left; }
 .bullet { color: #34d399; font-weight: bold; }
 
-/* ---------- КАЛЬКУЛЯТОР ---------- */
 .calc-card {
     background: #0f172a;
     border: 1px solid #1f2937;
@@ -150,12 +147,10 @@ body {
 </head>
 <body>
 
-<!-- Бургер -->
 <div class="burger" id="burger">
     <span></span><span></span><span></span>
 </div>
 
-<!-- Меню -->
 <nav id="sideMenu" class="side-menu">
     <a href="index.html">🏋️ Тренировки</a>
     <a href="nutrition.html">🥗 Питание</a>
@@ -180,7 +175,7 @@ body {
     <div id="result" class="calc-result"></div>
 </div>
 
-<!-- Пример карточек питания -->
+
 <div class="card">
     <div class="card-title">🍌 Перекус №1 <span class="time-label">12:30</span></div>
     <p class="text"><span class="bullet">•</span> Орехи (микс) — 40–50 г</p>
@@ -257,5 +252,6 @@ function calculateBJU() {
 
 </body>
 </html>
+
 
 
