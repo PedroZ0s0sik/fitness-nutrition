@@ -158,7 +158,6 @@ body {
 
 <h1 class="header">🥗 Питание для набора массы</h1>
 
-<!-- КАЛЬКУЛЯТОР -->
 <div class="calc-card">
     <div class="card-title">⚡ Мини-Калькулятор КБЖУ</div>
     <input type="number" id="weight" placeholder="Вес (кг)" />
@@ -225,7 +224,6 @@ burger.addEventListener("click", () => {
     sideMenu.classList.toggle("open");
 });
 
-/* ---------- Калькулятор КБЖУ ---------- */
 function calculateBJU() {
     const weight = parseFloat(document.getElementById("weight").value);
     const height = parseFloat(document.getElementById("height").value);
@@ -235,11 +233,11 @@ function calculateBJU() {
         document.getElementById("result").innerHTML = "Введите все данные!";
         return;
     }
-    // BMR по формуле Миффлина-Сан Жеора
+  
     const bmr = 10*weight + 6.25*height - 5*age + 5;
     const calories = Math.round(bmr*activity);
-    const protein = Math.round(weight*2); // 2 г белка на кг
-    const fat = Math.round(weight*1); // 1 г жиров на кг
+    const protein = Math.round(weight*2); 
+    const fat = Math.round(weight*1); 
     const carbs = Math.round((calories - (protein*4 + fat*9))/4);
     document.getElementById("result").innerHTML = `
         Калории: <b>${calories} ккал</b><br>
@@ -252,6 +250,7 @@ function calculateBJU() {
 
 </body>
 </html>
+
 
 
 
