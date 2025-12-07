@@ -230,31 +230,6 @@ p {
     padding-left: 30px;
 }
 
-        #user-block {
-            position: fixed;
-            top: 80px;
-            left: 20px;
-            padding: 20px;
-            background: rgba(0,0,0,0.6);
-            color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
-            z-index: 1000;
-            max-width: 220px;
-        }
-        #user-block h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.4em;
-            color: #ffcc00;
-        }
-        #user-block ul {
-            padding-left: 20px;
-            margin: 5px 0;
-        }
-        #user-block li {
-            font-size: 1em;
-            margin-bottom: 5px;
-        }
 
     </style>
 </head>
@@ -333,46 +308,11 @@ p {
         sideMenu.classList.toggle("open");
     });
 </script>
-<script>
-    // Бургер меню
-    const burger = document.getElementById("burger");
-    const sideMenu = document.getElementById("sideMenu");
-
-    burger.addEventListener("click", () => {
-        burger.classList.toggle("active");
-        sideMenu.classList.toggle("open");
-    });
-
-    // Запрос имени пользователя и создание блока
-    window.addEventListener("DOMContentLoaded", () => {
-        let userName = localStorage.getItem("userName");
-
-        if (!userName) {
-            userName = prompt("Введите ваше имя:");
-            if (!userName || userName.trim() === "") {
-                userName = "Гость";
-            }
-            localStorage.setItem("userName", userName);
-        }
-
-        const userBlock = document.createElement("div");
-        userBlock.id = "user-block";
-        userBlock.innerHTML = `
-            <h3>Привет, ${userName}!</h3>
-            <p>Ваш личный рацион:</p>
-            <ul>
-                <li>Завтрак: овсянка + фрукты</li>
-                <li>Обед: курица + овощи</li>
-                <li>Ужин: рыба + салат</li>
-            </ul>
-        `;
-        document.body.appendChild(userBlock);
-    });
-</script>
 
 </body>
 
 </html>
+
 
 
 
