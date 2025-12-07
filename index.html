@@ -6,7 +6,7 @@
     <script src="host.js"></script>
     <title>Fitnes-Trener</title>
     <style>
-/* === АНИМАЦИИ === */
+
 
 body {
     animation: fadeInPage 1.5s ease forwards;
@@ -39,7 +39,7 @@ body {
 }
 
 
-/* === ОСНОВНОЙ СТИЛЬ === */
+
 
 body {
     margin: 0;
@@ -64,7 +64,7 @@ p {
     color: #ffcc00;
 }
 
-/* Карточки */
+
 .right-aligned-block,
 .right-aligned-block1 {
     background: rgba(255,255,255,0.06);
@@ -87,7 +87,7 @@ p {
     transition: 0.4s;
 }
 
-/* Заголовки дней */
+
 .plan-heading-pn { color: #ee9d06; }
 .plan-heading-sr { color: #14ec99; }
 .plan-heading-pt { color: #ff1e6f; }
@@ -102,7 +102,7 @@ p {
     animation: glowHeader 3.5s infinite ease-in-out;
 }
 
-/* Подзаголовки мышечных групп (разноцветные) */
+
 .plan-heading-pnn  { color: #ff3333; }
 .plan-heading-pnn2 { color: #ff3333; }
 .plan-heading-pnn3 { color: #ff3333; }
@@ -138,7 +138,7 @@ p {
     animation: slideExercise 0.8s ease forwards;
 }
 
-/* Задержки появления — ступенчатое проявление */
+
 .exercise-item:nth-child(1),
 .exercise-item2:nth-child(1),
 .exercise-item3:nth-child(1),
@@ -165,8 +165,6 @@ p {
 
 
 
-
-/* Бургер-иконка */
 .burger {
     position: fixed;
     top: 20px;
@@ -188,7 +186,6 @@ p {
     transition: 0.3s;
 }
 
-/* Анимация бургера в крестик */
 .burger.active span:nth-child(1) {
     transform: translateY(13px) rotate(45deg);
 }
@@ -199,11 +196,10 @@ p {
     transform: translateY(-13px) rotate(-45deg);
 }
 
-/* Боковое меню */
 .side-menu {
     position: fixed;
     top: 0;
-    left: -250px; /* Скрыто */
+    left: -250px; 
     width: 250px;
     height: 100%;
     background: rgba(20,20,20,0.95);
@@ -237,21 +233,19 @@ p {
 </head>
 <body>
 
-<!-- Бургер -->
+
 <div id="burger" class="burger">
     <span></span>
     <span></span>
     <span></span>
 </div>
 
-<!-- Боковое меню -->
+
 <nav id="sideMenu" class="side-menu">
     <a href="F-site.html">🏋️ Тренировки</a>
     <a href="nutrition.html">🥗 Питание</a>
 </nav>
 
-
-     <!--ПЛАН ТРЕНИ-->
     <p>📅 <span class="plan-heading">ТРЕНИРОВОЧНЫЙ ПЛАН (Пн/Ср/Пт)</span></p>
 
     <div class="right-aligned-block">
@@ -314,4 +308,5 @@ p {
 </script>
 
 </body>
+
 </html>
